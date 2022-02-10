@@ -1,0 +1,74 @@
+#include<iostream>
+#include<conio.h>
+#include<string.h>
+#include<stdio.h>
+
+using namespace std;
+
+class customer
+{
+    int customer_no, orderqty;
+    char customer_name[20];
+    float price, totalprice, discount, netprice;
+
+    public:
+    customer()
+    {
+        customer_no=123;
+        strcpy(customer_name, "Rohit");
+        orderqty=0;
+        price=0.0;
+        totalprice=0.0;
+        discount=0.0;
+        netprice=0.0;
+    }
+
+    void input()
+    {
+        cout<<"Enter the customer number"<<endl;
+        cin>>customer_no;
+        cout<<"Enter the customer name"<<endl;
+        cin>>customer_name;
+        cout<<"Enter the quantity of the order"<<endl;
+        cin>>orderqty;
+        cout<<"Enter the price of the order"<<endl;
+        cin>>price;
+        caldiscount();
+    }
+
+    void display()
+    {
+        cout<<"\n\nCustomer Number: "<<customer_no<<endl<<"Customer Name: "<<customer_name<<endl<<"Order Quantity: "<<orderqty<<endl<<"Proce of each order: "<<price<<endl<<"Total Price: "<<totalprice<<endl<<"Discount you get: "<<discount<<endl<<"Netprice: "<<netprice<<endl;
+        cout<<"\n\n******THANK YOU******\n\n"<<"******PLEASE VISIT AGAIN******\n\n"<<"******HAVE A NICE DAY******\n"<<endl;
+    }
+
+    protected:
+    void caldiscount()
+    {
+        totalprice=price*orderqty;
+        if(totalprice>=50000)
+        {
+            discount=(totalprice*25)/100;
+        }
+        else if(totalprice>=25000 && totalprice<50000)
+        {
+            discount=(totalprice*15)/100;
+        }
+        else if(totalprice<25000)
+        {
+            discount=(totalprice*10)/100;
+        }
+        netprice=totalprice-discount;
+    }
+};
+
+int main()
+{
+    customer ob;
+    ob.display();
+    customer ob1;
+    ob1.input();
+    ob1.display();
+
+    return 0;
+}
