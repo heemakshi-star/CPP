@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int i, n, l, search, a[100];
+    cout<<"Enter the number of elements\n";
+    cin>>n;
+    cout<<"enter "<<n<<" integers\n";
+
+    for(i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+
+    cout<<"Enter the value to be found: ";
+    cin>>search;
+
+    for(i=0; i<n; i++)
+    {
+        if(a[i]==search)
+        {
+            l=i;
+        }
+    }
+    cout<<search<<" Found at the location "<<l+1;
+    
+    return 0;
+}
